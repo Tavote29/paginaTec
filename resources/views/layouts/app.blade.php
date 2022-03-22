@@ -13,7 +13,7 @@
 
 </head>
 <body>
-    <nav class="flex py-5 bg-indigo-500 text-white">
+    <nav class="flex py-5 bg-red-500 text-white">
         <div class="w-1/2 px-12 mr-auto">
             <p class="text-2x1 font-bold">
                 Menu principal

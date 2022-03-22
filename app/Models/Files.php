@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Files extends Model
 {
-    protected $fillable = ['url', 'user_id'];
+    protected $fillable = ['url', 'user_id', 'uuid'];
 
     public function user(){
         return $this->belongsTo('App\Models\User');

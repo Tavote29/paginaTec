@@ -4,6 +4,7 @@ use App\Http\Controllers\FilesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
+use App\Models\Files;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,5 +39,6 @@ Route::get('/logout',[SessionsController::class, 'destroy'])
     ->middleware('auth')
     ->name('login.destroy');
 
-    Route::resource('files', FilesController::class);
+Route::resource('files', FilesController::class);
 
+Route::get('files/{uuid}/download', [FilesController::class, 'download'])->name('files.download');
