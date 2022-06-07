@@ -4,6 +4,8 @@ use App\Http\Controllers\FilesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ForgotPasswordController;
 use App\Models\Files;
 
 /*
@@ -20,6 +22,14 @@ use App\Models\Files;
 Route::get('/', function () {
     return view('home');
 })-> middleware('auth');
+
+Route::get('forget-password',[ForgotPasswordController::class, 'ForgetPassword'])-> name('forget_password.get');
+
+Route::post('forget-password',[ForgotPasswordController::class, 'ForgetPasswordStore'])->name('forget_password.post');
+
+Route::get('reset-password/{token}',[ForgotPasswordController::class, 'ResetPassword'])->name('reset_password.get');
+
+Route::post('reset-password',[ForgotPasswordController::class, 'ResetPasswordStore'])->name('reset_password.post');
 
 Route::get('/register',[RegisterController::class, 'create'])
     ->middleware('guest')
@@ -42,3 +52,8 @@ Route::get('/logout',[SessionsController::class, 'destroy'])
 Route::resource('files', FilesController::class);
 
 Route::get('files/{uuid}/download', [FilesController::class, 'download'])->name('files.download');
+
+Route::resource('user', UserController::class)->middleware('auth');
+
+
+

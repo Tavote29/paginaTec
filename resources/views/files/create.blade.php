@@ -8,6 +8,8 @@
 
 @section('content')
 
+    @livewire('navigation')
+
     <div class ="block mx-auto my-12 p-8 bg-white w-1/2 border border-gray-200 rounded-lg shadow-lg">
         <h1 class="text-2xl font-bold">
             Inserte archivo
